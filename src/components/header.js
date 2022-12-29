@@ -5,6 +5,8 @@ import profile_img from "../assets/images/ennaime.jpeg";
 
 const Header = () => {
   const [search, setSearch] = useState("");
+  const [toggle, setToggle] = useState(false);
+
   return (
     <header className="App-header">
       <div className="header">
@@ -35,10 +37,36 @@ const Header = () => {
                 <BiSearchAlt2 className="search-icon" />
               </button>
             </form>
-            <div className="profile">
-              <img src={profile_img} alt="user-profile" className="user-img" />
-              <h5>Ahmed Ennaime</h5>
-              <BiDownArrow className="drop-down-btn" />
+            <div
+              className="dropdown"
+              onClick={() => {
+                setToggle(!toggle);
+              }}
+            >
+              <>
+                <div className="profile">
+                  <img
+                    src={profile_img}
+                    alt="user-profile"
+                    className="user-img"
+                  />
+                  <h5>Ahmed Ennaime</h5>
+                  <BiDownArrow className="drop-down-btn" />
+                </div>
+                {toggle && (
+                  <div class="dropdown-content">
+                    <a href="#" className="dropdown-link">
+                      Profile
+                    </a>
+                    <a href="#" className="dropdown-link">
+                      Settings
+                    </a>
+                    <a href="#" className="dropdown-link">
+                      Log out
+                    </a>
+                  </div>
+                )}
+              </>
             </div>
           </div>
         </ul>
