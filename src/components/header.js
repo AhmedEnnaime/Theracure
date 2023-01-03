@@ -2,6 +2,8 @@ import { BiSearchAlt2, BiDownArrow } from "react-icons/bi";
 import { useState } from "react";
 import "../assets/css/header.css";
 import profile_img from "../assets/images/ennaime.jpeg";
+import logo from "../assets/images/logo_theracure.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [search, setSearch] = useState("");
@@ -12,7 +14,9 @@ const Header = () => {
       <div className="header">
         <ul className="nav-list">
           <div className="left-header">
-            <h2>MEDICAL</h2>
+            <Link style={{ textDecoration: "none" }} to={"/"}>
+              <h2 className="left-header-title">Theracure</h2>
+            </Link>
           </div>
           <div className="right-header">
             <form
@@ -61,9 +65,9 @@ const Header = () => {
                     <a href="#" className="dropdown-link">
                       Settings
                     </a>
-                    <a href="#" className="dropdown-link">
-                      Log out
-                    </a>
+                    <Link style={{ textDecoration: "none" }} to={"/login"}>
+                      <p className="dropdown-link">Log out</p>
+                    </Link>
                   </div>
                 )}
               </>
