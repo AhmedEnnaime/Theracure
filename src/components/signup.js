@@ -6,7 +6,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const Signup = () => {
-  const [inputs, setInputs] = useState([]);
+  const [inputs, setInputs] = useState({});
   const url = "http://localhost/YouCode/Theracure";
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -15,12 +15,11 @@ const Signup = () => {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
-  async function handleSubmit(event) {
-    event.preventDefault();
-    const res = await axios
+  async function handleSubmit(e) {
+    e.preventDefault();
+    await axios
       .post(`${url}/users/signup`, inputs)
       .then((response) => {
-        console.log(response.data);
         if (response.data) {
           navigate("/login");
         }
@@ -28,7 +27,6 @@ const Signup = () => {
       .catch((err) => {
         console.log(err);
       });
-    //console.log(inputs);
   }
   return (
     <div className="login-container">
@@ -45,6 +43,7 @@ const Signup = () => {
               name="name"
               placeholder="Enter full name"
               onChange={handleChange}
+              required
             />
             <input
               className="login-inp"
@@ -52,14 +51,23 @@ const Signup = () => {
               name="birthday"
               placeholder="Enter birthday"
               onChange={handleChange}
+              required
             />
-            <input className="login-inp" type="text" placeholder="Enter cin" />
+            <input
+              className="login-inp"
+              type="text"
+              name="cin"
+              placeholder="Enter cin"
+              onChange={handleChange}
+              required
+            />
             <input
               className="login-inp"
               type="email"
               name="email"
               placeholder="Enter email"
               onChange={handleChange}
+              required
             />
             <input
               className="login-inp"
@@ -67,14 +75,17 @@ const Signup = () => {
               name="password"
               placeholder="Enter password"
               onChange={handleChange}
+              required
             />
             <input
               className="login-inp"
               type="file"
               name="img"
-              placeholder="Enter image"
+              placeholder="Enter img"
               onChange={handleChange}
+              required
             />
+
             <button type="submit" className="login-btn">
               Signup
             </button>

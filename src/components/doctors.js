@@ -13,7 +13,7 @@ const Doctors = () => {
 
   const url = "http://localhost/YouCode/Theracure";
   async function requestDoctors() {
-    const res = await axios
+    await axios
       .get(`${url}/doctors/getAllDoctors`)
       .then((response) => {
         setDoctors(response.data.Doctors);
@@ -24,7 +24,7 @@ const Doctors = () => {
   }
 
   async function DoctorsNum() {
-    const res = await axios
+    await axios
       .get(`${url}/doctors/getDoctorsNum`)
       .then((response) => {
         setDoctorsNum(response.data.doctors);

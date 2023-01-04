@@ -57,7 +57,7 @@ const Header = () => {
                   <BiDownArrow className="drop-down-btn" />
                 </div>
                 {toggle && (
-                  <div class="dropdown-content">
+                  <div className="dropdown-content">
                     <Link style={{ textDecoration: "none" }}>
                       <p className="dropdown-link">Profile</p>
                     </Link>
