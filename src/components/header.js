@@ -2,7 +2,6 @@ import { BiSearchAlt2, BiDownArrow } from "react-icons/bi";
 import { useState } from "react";
 import "../assets/css/header.css";
 import profile_img from "../assets/images/ennaime.jpeg";
-import logo from "../assets/images/logo_theracure.png";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -59,12 +58,12 @@ const Header = () => {
                 </div>
                 {toggle && (
                   <div class="dropdown-content">
-                    <a href="#" className="dropdown-link">
-                      Profile
-                    </a>
-                    <a href="#" className="dropdown-link">
-                      Settings
-                    </a>
+                    <Link style={{ textDecoration: "none" }}>
+                      <p className="dropdown-link">Profile</p>
+                    </Link>
+                    <Link style={{ textDecoration: "none" }}>
+                      <p className="dropdown-link">Settings</p>
+                    </Link>
                     <Link style={{ textDecoration: "none" }} to={"/login"}>
                       <p className="dropdown-link">Log out</p>
                     </Link>

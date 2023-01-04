@@ -7,7 +7,7 @@
 
 .login-container{
     margin-top: 17%;
-    margin-left: 45%;
+    margin-left: 40%;
 }
 .login-content{
     display: flex;
@@ -28,9 +28,10 @@
     flex-direction: column;
     align-items: center;
     gap: 40px;
+    margin-right: 67%;
 }
 .login-inp{
-    height: 30px;
+    height: 40px;
     width: 280px;
     border-radius: 6px;
     padding-left: 20px;

@@ -1,6 +1,7 @@
 import { BiLock } from "react-icons/bi";
 import "../assets/css/login.css";
 import logo from "../assets/images/logo_thercaure1.png";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -24,7 +25,9 @@ const Login = () => {
             />
             <button className="login-btn">Login</button>
           </form>
-          <p className="signup-link">Don't have account ? sign up now</p>
+          <Link to={"/signup"}>
+            <p className="signup-link">Don't have account ? sign up now</p>
+          </Link>
         </div>
       </div>
     </div>

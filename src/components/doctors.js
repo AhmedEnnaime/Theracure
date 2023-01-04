@@ -5,8 +5,10 @@ import { useState, useEffect } from "react";
 
 const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
+  const [doctorsNum, setDoctorsNum] = useState([]);
   useEffect(() => {
     requestDoctors();
+    DoctorsNum();
   }, []);
 
   const url = "http://localhost/YouCode/Theracure";
@@ -14,8 +16,18 @@ const Doctors = () => {
     const res = await axios
       .get(`${url}/doctors/getAllDoctors`)
       .then((response) => {
-        console.log(response.data.Doctors);
         setDoctors(response.data.Doctors);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  async function DoctorsNum() {
+    const res = await axios
+      .get(`${url}/doctors/getDoctorsNum`)
+      .then((response) => {
+        setDoctorsNum(response.data.doctors);
       })
       .catch((err) => {
         console.log(err);
@@ -26,7 +38,7 @@ const Doctors = () => {
     <div className="card doctors-card">
       <div className="card-head">
         <h3 className="card-title">Doctors</h3>
-        <span>12 doctors</span>
+        <span>{doctorsNum} doctors</span>
       </div>
       <div className="card-body">
         <ul className="doctor-list">
