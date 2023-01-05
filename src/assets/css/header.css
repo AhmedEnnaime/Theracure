@@ -1,5 +1,5 @@
 .App-header{
-    background-color: gray;
+    background-color: #5AA7A7;
 }
 
 .nav-list{
@@ -71,7 +71,7 @@
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
 -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
 -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.15);
-    background-color: #495057;
+    background-color: black;
 }
 .dropdown-link{
     text-align:start;

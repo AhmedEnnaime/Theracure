@@ -1,0 +1,17 @@
+:root {
+    --fc-border-color: none;
+  }
+ 
+  .fc-header-toolbar{
+    padding-top: 10px;
+  }
+  .fc-button {
+    background-color: transparent !important;
+    border: none !important;
+  }
+  .fc-icon{
+    color: black;
+  }
+
+
+

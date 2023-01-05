@@ -43,8 +43,8 @@
     width: 200px;
     height: 30px;
     border-radius: 6px;
-    background-color: rgba(34, 34, 234, 0.834);
-    color: white;
+    background-color: #5AA7A7;
+    color: black;
     cursor: pointer;
 }
 .signup-link{

@@ -26,7 +26,7 @@
 }
 
 .card-head{
-    background-color: rgba(21, 18, 18, 0.133);
+    background-color: #5AA7A7;
     display: flex;
     grid-column: 1/-1;
     justify-content: space-between;
@@ -36,6 +36,9 @@
     padding: 0 10px;
 }
 
+.calendar-card{
+  width: 390px;
+}
 .doctor-list{
     margin-top: 20px;
     display: grid;

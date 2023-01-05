@@ -1,6 +1,6 @@
 
 footer{
-    background-color: antiquewhite;
+    background-color:#8ad7d7;
 }
 .footer-head{
     text-align: center;
@@ -32,7 +32,8 @@ footer{
     height: 30px;
     border-radius: 10px;
     border: none;
-    background-color: aqua;
+    color: white;
+    background-color: black;
 }
 .social{
     display: flex;

@@ -1,11 +1,13 @@
 import "../assets/css/footer.css";
 import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
+import logo from "../assets/images/logo_thercaure1.png";
+
 const Footer = () => {
   return (
     <footer>
       <div className="footer-container">
         <div className="footer-head">
-          <h2>Theracure</h2>
+          <img width="300px" src={logo} alt="" />
         </div>
         <div className="footer-content">
           <div className="footer-info">
