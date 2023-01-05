@@ -3,7 +3,10 @@ import img from "../assets/images/Untitled_design-14-removebg-preview.png";
 
 const Modal = ({ open, onClose }) => {
   const [time, setTime] = useState("");
-
+  const handleChange = (e) => {
+    setTime(e.target.value);
+    console.log(e.target.value);
+  };
   if (!open) {
     return null;
   }
@@ -21,9 +24,9 @@ const Modal = ({ open, onClose }) => {
                 className="time_input"
                 type="radio"
                 name="time_available"
-                value={time}
                 id=""
-                onChange={(e) => setTime(e.target.value)}
+                value="8:00 am"
+                onClick={handleChange}
               />
               <label htmlFor="8:00 AM">8:00 AM</label>
             </div>
@@ -32,9 +35,9 @@ const Modal = ({ open, onClose }) => {
                 className="time_input"
                 type="radio"
                 name="time_available"
-                value={time}
                 id=""
-                onChange={(e) => setTime(e.target.value)}
+                value="10:00 am"
+                onClick={handleChange}
               />
               <label htmlFor="10:00 AM">10:00 AM</label>
             </div>
@@ -43,9 +46,9 @@ const Modal = ({ open, onClose }) => {
                 className="time_input"
                 type="radio"
                 name="time_available"
-                value={time}
                 id=""
-                onChange={(e) => setTime(e.target.value)}
+                value="12:00 am"
+                onClick={handleChange}
               />
               <label htmlFor="10:00 AM">12:00 AM</label>
             </div>
