@@ -1,6 +1,6 @@
 import { BiLock } from "react-icons/bi";
 import "../assets/css/login.css";
-import logo from "../assets/images/logo_thercaure1.png";
+import logo from "../assets/images/thecure.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";

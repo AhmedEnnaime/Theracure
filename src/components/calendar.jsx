@@ -41,6 +41,7 @@ const Calendare = () => {
         navLinkDayClick={(date) => {
           console.log(date.toISOString().split("T")[0]);
         }}
+        // eventClick={{}}
       />
       <Modal
         open={openModal}

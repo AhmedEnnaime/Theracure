@@ -1,6 +1,6 @@
 import "../assets/css/footer.css";
 import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
-import logo from "../assets/images/logo_thercaure1.png";
+import logo from "../assets/images/thecure.svg";
 
 const Footer = () => {
   return (

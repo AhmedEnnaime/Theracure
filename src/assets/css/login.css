@@ -40,10 +40,11 @@
    padding-left: 40px;
 }
 .login-btn{
-    width: 200px;
+    width: 100%;
     height: 30px;
     border-radius: 6px;
-    background-color: #5AA7A7;
+    background-color: #00DCA6;
+    border: none;
     color: black;
     cursor: pointer;
 }

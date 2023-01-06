@@ -3,7 +3,7 @@ const Appointment = () => {
     <div className="card appointment-card">
       <div className="card-head">
         <h3 className="card-title">Appointments</h3>
-        <span>12 appointments</span>
+        <span className="element-num">12 appointments</span>
       </div>
 
       <div className="card-body">

@@ -3,6 +3,7 @@ import { useState } from "react";
 import "../assets/css/header.css";
 import profile_img from "../assets/images/ennaime.jpeg";
 import { Link } from "react-router-dom";
+import logo from "../assets/images/thecure-whitev2.svg";
 
 const Header = () => {
   const [search, setSearch] = useState("");
@@ -14,7 +15,7 @@ const Header = () => {
         <ul className="nav-list">
           <div className="left-header">
             <Link style={{ textDecoration: "none" }} to={"/"}>
-              <h2 className="left-header-title">Theracure</h2>
+              <img src={logo} className="left-header-title" alt="" />
             </Link>
           </div>
           <div className="right-header">

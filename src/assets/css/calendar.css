@@ -1,7 +1,14 @@
 :root {
     --fc-border-color: none;
   }
- 
+  .fc-day-today {
+    background-color: blue !important;
+    border-radius: 50%;
+    width: 100px !important;
+  }
+  .fc-today-button{
+    color: black !important;
+  }
   .fc-header-toolbar{
     padding-top: 10px;
   }

@@ -38,7 +38,7 @@ const Doctors = () => {
     <div className="card doctors-card">
       <div className="card-head">
         <h3 className="card-title">Doctors</h3>
-        <span>{doctorsNum} doctors</span>
+        <span className="element-num">{doctorsNum} doctors</span>
       </div>
       <div className="card-body">
         <ul className="doctor-list">
