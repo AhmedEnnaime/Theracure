@@ -95,18 +95,18 @@
 
 
 
-/* .modalButton {
+.modalButton {
     position: fixed;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
     padding: 12px 24px;
-  } */
+  }
   
   
   /* Modal */
-  /* .overlay {
+  .overlay {
     z-index: 10000;
     position: fixed;
     width: 100%;
@@ -175,4 +175,4 @@
     justify-content: center;
     gap: 40px;
     margin-bottom: 20px;
-  } */
+  }

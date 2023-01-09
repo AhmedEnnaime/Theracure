@@ -1,11 +1,16 @@
 :root {
     --fc-border-color: none;
+    --fc-daygrid-event-dot-width: 5px;
   }
-  .fc-day-today {
-    background-color: blue !important;
+  .fc .fc-col-header-cell-cushion {
+    display: inline-block;
+    padding: 5px 30px;
+  }
+
+  /* .fc-day-today {
+    background-color: rgb(160, 160, 204) !important;
     border-radius: 50%;
-    width: 100px !important;
-  }
+  } */
   .fc-today-button{
     color: black !important;
   }
