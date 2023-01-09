@@ -42,7 +42,7 @@ const Doctors = () => {
       </div>
       <div className="card-body">
         <ul className="doctor-list">
-          {doctors.map((doctor, key) => (
+          {doctors.slice(0, 9).map((doctor, key) => (
             <li key={key} className="card-item">
               <img src={doctor_img} className="doctor-img" alt="doctor-img" />
               <h4 className="doctor-name">{doctor.name}</h4>
@@ -50,6 +50,10 @@ const Doctors = () => {
             </li>
           ))}
         </ul>
+      </div>
+      <div className="card-footer">
+        <hr className="line" />
+        <p>View All Doctors</p>
       </div>
     </div>
   );

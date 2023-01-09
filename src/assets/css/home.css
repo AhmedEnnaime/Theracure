@@ -24,6 +24,7 @@
     border: 1px solid black;
     border-radius: 5px;
     width: 100%;
+    height: fit-content;
     background-color: #DCEDFE;
 }
 .card-title{
@@ -61,6 +62,14 @@
 
 .card-item{
     text-align: center;
+}
+.card-footer{
+  margin-top: 90px;
+}
+.card-footer p{
+  text-align: center;
+  cursor: pointer;
+  margin-top: 5px;
 }
 
 .doctor-img{

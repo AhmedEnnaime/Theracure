@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "react-calendar/dist/Calendar.css";
 import Modal from "./modal";
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
@@ -6,6 +6,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import "../assets/css/calendar.css";
 import axios from "axios";
+import EventItem from "./event";
 
 const Calendare = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -26,13 +27,12 @@ const Calendare = () => {
     const dates = [];
     appointments.forEach((appointment) => {
       const { date } = appointment;
-      dates.push({ date: date });
+      dates.push({ date: date }, { date: "2023-02-01", color: "#00DCA6" });
     });
     return dates;
   };
 
   const availableAppointments = getUniqueListBy(getAppointmentsDates(), "date");
-  console.log(availableAppointments);
   const url = "http://localhost/YouCode/Theracure";
   const requestAvailableAppointments = async () => {
     await axios
@@ -45,6 +45,13 @@ const Calendare = () => {
       });
   };
 
+  const calendarRef = useRef(null);
+
+  const handleEventClick = () => {
+    //calendarRef.current.getApi().gotoDate(event.event.start);
+    calendarRef.current.getApi().changeView("dayGridDay");
+  };
+
   return (
     <div className="card calendar-card">
       <div className="card-head">
@@ -52,7 +59,8 @@ const Calendare = () => {
       </div>
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
-        initialView="dayGridMonth"
+        //initialView="dayGridMonth"
+        views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
         events={availableAppointments}
         dateClick={(info) => {
           appointments.forEach((appointment, key) => {
@@ -67,6 +75,10 @@ const Calendare = () => {
           });
         }}
         eventDisplay="list-item"
+        eventClick={handleEventClick}
+        // eventContent={(info) => {
+        //   <EventItem info={info} />;
+        // }}
         firstDay="1"
         headerToolbar={{
           left: "prev",
@@ -75,12 +87,13 @@ const Calendare = () => {
         }}
         footerToolbar={{
           right: "today",
+          left: "dayGridMonth dayGridWeek dayGridDay",
         }}
         buttonIcons={{
           prev: "chevrons-left",
           next: "chevrons-right",
         }}
-        // navLinks={true}
+        //navLinks={true}
         // navLinkDayClick={(date) => {
         //   console.log(date.toISOString().split("T")[0]);
         // }}
