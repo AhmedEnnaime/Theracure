@@ -2,6 +2,7 @@ import doctor_img from "../assets/images/ait elkadi.jpeg";
 import axios from "axios";
 import "../assets/css/home.css";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
@@ -53,7 +54,12 @@ const Doctors = () => {
       </div>
       <div className="card-footer">
         <hr className="line" />
-        <p>View All Doctors</p>
+        <Link
+          style={{ textDecoration: "none", color: "black" }}
+          to={"/doctors"}
+        >
+          <p>View All Doctors</p>
+        </Link>
       </div>
     </div>
   );

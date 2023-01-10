@@ -1,3 +1,5 @@
+import { BsFillTrashFill } from "react-icons/bs";
+
 const Appointment = () => {
   return (
     <div className="card appointment-card">
@@ -9,33 +11,36 @@ const Appointment = () => {
       <div className="card-body">
         <ul className="appointment-list">
           <li className="card-item">
-            <span className="appointment-date">21 / 06 / 2022</span>
-            <span className="appointment-horaire">08:00 AM</span>
-            <h5 className="doctor-name">Dr.Mahjour</h5>
+            <div className="sides left-side">
+              <h5 className="doctor-name">Dr.Mahjour</h5>
+              <span className="appointment-date">2023-01-22</span>
+            </div>
+            <div className="sides right-side">
+              <span className="appointment-horaire">08:00 am</span>
+              <BsFillTrashFill className="trash-icon" />
+            </div>
           </li>
-
+          <hr />
           <li className="card-item">
-            <span className="appointment-date">21 / 06 / 2022</span>
-            <span className="appointment-horaire">08:00 AM</span>
-            <h5 className="doctor-name">Dr.Mahjour</h5>
+            <div className="sides left-side">
+              <h5 className="doctor-name">Dr.Mahjour</h5>
+              <span className="appointment-date">2023-01-22</span>
+            </div>
+            <div className="sides right-side">
+              <span className="appointment-horaire">08:00 am</span>
+              <BsFillTrashFill className="trash-icon" />
+            </div>
           </li>
-
+          <hr />
           <li className="card-item">
-            <span className="appointment-date">21 / 06 / 2022</span>
-            <span className="appointment-horaire">08:00 AM</span>
-            <h5 className="doctor-name">Dr.Mahjour</h5>
-          </li>
-
-          <li className="card-item">
-            <span className="appointment-date">21 / 06 / 2022</span>
-            <span className="appointment-horaire">08:00 AM</span>
-            <h5 className="doctor-name">Dr.Mahjour</h5>
-          </li>
-
-          <li className="card-item active">
-            <span className="appointment-date">31 / 06 / 2022</span>
-            <span className="appointment-horaire">08:00 AM</span>
-            <h5 className="doctor-name">Dr.Mahjour</h5>
+            <div className="sides left-side">
+              <h5 className="doctor-name">Dr.Mahjour</h5>
+              <span className="appointment-date">2023-01-22</span>
+            </div>
+            <div className="sides right-side">
+              <span className="appointment-horaire">08:00 am</span>
+              <BsFillTrashFill className="trash-icon" />
+            </div>
           </li>
         </ul>
       </div>

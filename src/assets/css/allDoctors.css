@@ -1,0 +1,59 @@
+.title{
+   margin: 40px;
+}
+.search-bar{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+.search-doctor{
+    border: 1px solid black;
+    width: 30%;
+    height: 40px;
+    padding-left: 20px;
+    border-radius: 20px;
+}
+.speciality-search{
+    width: 10%;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.doctors-list{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 40px;
+    padding: 40px;
+}
+.doctor-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid black;
+    height: fit-content;
+    border-radius: 10px;
+}
+.img-card{
+    border: 1px solid black;
+    background-color: #00DCA6;
+    border-radius: 50%;
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    /* position: absolute; */
+}
+.doctors-img{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.doctors-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.doctors-speciality{
+    padding: 10px;
+}
