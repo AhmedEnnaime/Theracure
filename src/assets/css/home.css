@@ -95,6 +95,19 @@
   gap: 10px;
   padding: 10px;
 }
+.responsible-doctor{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.responsible-doctor-img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.appointment-date{
+  padding-left: 50px;
+}
 
 .left-side{
   float: left;

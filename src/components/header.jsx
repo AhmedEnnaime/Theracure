@@ -59,11 +59,8 @@ const Header = () => {
                 </div>
                 {toggle && (
                   <div className="dropdown-content">
-                    <Link style={{ textDecoration: "none" }}>
+                    <Link style={{ textDecoration: "none" }} to={"/profile"}>
                       <p className="dropdown-link">Profile</p>
-                    </Link>
-                    <Link style={{ textDecoration: "none" }}>
-                      <p className="dropdown-link">Settings</p>
                     </Link>
                     <Link style={{ textDecoration: "none" }} to={"/login"}>
                       <p className="dropdown-link">Log out</p>
