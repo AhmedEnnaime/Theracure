@@ -1,0 +1,48 @@
+.profile-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-head{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #00DCA6;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.profile-img{
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.profile-body form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.cam{
+    position: absolute;
+    bottom: 30px;
+    margin-left: 40px;
+    cursor: pointer;
+    font-size: 30px;
+    z-index: 99;
+}
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload img
+{
+    width: 80px;
+    cursor: pointer;
+}

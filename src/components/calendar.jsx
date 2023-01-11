@@ -6,7 +6,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import "../assets/css/calendar.css";
 import axios from "axios";
-import EventItem from "./event";
+//import EventItem from "./event";
 
 const Calendare = () => {
   const [openModal, setOpenModal] = useState(false);
@@ -45,12 +45,12 @@ const Calendare = () => {
       });
   };
 
-  const calendarRef = useRef(null);
+  // const calendarRef = useRef(null);
 
-  const handleEventClick = () => {
-    //calendarRef.current.getApi().gotoDate(event.event.start);
-    calendarRef.current.getApi().changeView("dayGridDay");
-  };
+  // const handleEventClick = () => {
+  //   //calendarRef.current.getApi().gotoDate(event.event.start);
+  //   calendarRef.current.getApi().changeView("dayGridDay");
+  // };
 
   return (
     <div className="card calendar-card">
@@ -59,7 +59,7 @@ const Calendare = () => {
       </div>
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
-        //initialView="dayGridMonth"
+        initialView="dayGridMonth"
         views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
         events={availableAppointments}
         dateClick={(info) => {
@@ -75,7 +75,7 @@ const Calendare = () => {
           });
         }}
         eventDisplay="list-item"
-        eventClick={handleEventClick}
+        // eventClick={handleEventClick}
         // eventContent={(info) => {
         //   <EventItem info={info} />;
         // }}
