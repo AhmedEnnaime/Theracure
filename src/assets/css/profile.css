@@ -30,7 +30,7 @@
 
 .cam{
     position: absolute;
-    bottom: 30px;
+    bottom: 5px;
     margin-left: 40px;
     cursor: pointer;
     font-size: 30px;

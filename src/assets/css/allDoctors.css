@@ -21,17 +21,19 @@
 .doctors-list{
     display: grid;
     grid-template-columns: repeat(6,1fr);
-    gap: 40px;
     padding: 40px;
+    gap: 70px 40px;
 }
 .doctor-card{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 20px;
     border: 1px solid black;
-    height: fit-content;
+    height: 185px;
     border-radius: 10px;
+    position: relative;
 }
 .img-card{
     border: 1px solid black;
@@ -40,7 +42,8 @@
     padding: 7px;
     display: flex;
     align-items: center;
-    /* position: absolute; */
+    position: absolute;
+    top: -50px;
 }
 .doctors-img{
     height: 80px;
@@ -53,6 +56,7 @@
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    margin-top: 30px;
 }
 .doctors-speciality{
     padding: 10px;

@@ -22,7 +22,7 @@ const Profile = () => {
         <div className="profile-head">
           <img className="profile-img" src={doctor_img} alt="" />
           <div className="image-upload">
-            <label htmlFor="file-input">
+            <label htmlFor="file-input" style={{ position: "relative" }}>
               <AiOutlineCamera className="cam" />
             </label>
             <input id="file-input" type="file" />

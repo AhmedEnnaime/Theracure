@@ -1,21 +1,37 @@
 import Home from "./components/home";
 import Login from "./components/login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { QueryClientProvider, QueryClient } from "react-query";
+import { useState } from "react";
 import Signup from "./components/signup";
 import AllDoctors from "./components/allDoctors";
 import Profile from "./components/profile";
+import UserContext from "./components/context/userContext";
 
 const App = () => {
+  const user = useState(null);
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: Infinity,
+        cacheTime: Infinity,
+      },
+    },
+  });
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/signup" element={<Signup />}></Route>
-          <Route path="/doctors" element={<AllDoctors />}></Route>
-          <Route path="/profile" element={<Profile />}></Route>
-        </Routes>
+        <UserContext.Provider value={user}>
+          <QueryClientProvider client={queryClient}>
+            <Routes>
+              <Route path="/" element={<Home />}></Route>
+              <Route path="/login" element={<Login />}></Route>
+              <Route path="/signup" element={<Signup />}></Route>
+              <Route path="/doctors" element={<AllDoctors />}></Route>
+              <Route path="/profile" element={<Profile />}></Route>
+            </Routes>
+          </QueryClientProvider>
+        </UserContext.Provider>
       </BrowserRouter>
     </div>
   );
