@@ -19,20 +19,19 @@ const Login = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     await axios
-      .post(`${url}/users/login`, credentials)
+      .post(`${url}/authenticate/`, credentials)
       .then((response) => {
-        if (response.data.message === "Successful login") {
-          console.log(response.data.credentials.id);
-          navigate("/");
+        if (response.data.message === "Access allowed") {
+          console.log(response.data);
+          // if (window.sessionStorage["userId"]) {
+          //   window.sessionStorage.setItem("userId", "");
+          //   setUserId(response.data.credentials.id);
+          // } else {
+          //   setUserId(response.data.credentials.id);
+          // }
+          // navigate("/");
         } else {
           alert("Invalid credentials");
-        }
-
-        if (window.sessionStorage["userId"]) {
-          window.sessionStorage.setItem("userId", "");
-          setUserId(response.data.credentials.id);
-        } else {
-          setUserId(response.data.credentials.id);
         }
       })
       .catch((err) => {
