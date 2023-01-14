@@ -4,9 +4,11 @@ import logo from "../assets/images/thecure.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import useSessionStorage from "./customHooks/useSessionStorage";
 
 const Login = () => {
   const [credentials, setCredentials] = useState({});
+  const [userId, setUserId] = useSessionStorage("userId", "");
   const url = "http://localhost/YouCode/Theracure";
   const navigate = useNavigate();
   const handleChange = (e) => {
@@ -19,8 +21,18 @@ const Login = () => {
     await axios
       .post(`${url}/users/login`, credentials)
       .then((response) => {
-        if (response.data) {
+        if (response.data.message === "Successful login") {
+          console.log(response.data.credentials.id);
           navigate("/");
+        } else {
+          alert("Invalid credentials");
+        }
+
+        if (window.sessionStorage["userId"]) {
+          window.sessionStorage.setItem("userId", "");
+          setUserId(response.data.credentials.id);
+        } else {
+          setUserId(response.data.credentials.id);
         }
       })
       .catch((err) => {
