@@ -11,10 +11,8 @@ import axios from "axios";
 const Calendare = () => {
   const [openModal, setOpenModal] = useState(false);
   const [appointments, setAppointments] = useState([]);
+  const [showCalendar, setShowCalendar] = useState(true);
 
-  // const handleDateClick = () => {
-  //   setOpenModal(true);
-  // };
   useEffect(() => {
     requestAvailableAppointments();
   }, []);
@@ -45,60 +43,73 @@ const Calendare = () => {
       });
   };
 
-  // const calendarRef = useRef(null);
-
-  // const handleEventClick = () => {
-  //   //calendarRef.current.getApi().gotoDate(event.event.start);
-  //   calendarRef.current.getApi().changeView("dayGridDay");
-  // };
-
   return (
     <div className="card calendar-card">
       <div className="card-head">
         <h3 className="card-title">Today's schedule</h3>
       </div>
-      <FullCalendar
-        plugins={[dayGridPlugin, interactionPlugin]}
-        initialView="dayGridMonth"
-        views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
-        events={availableAppointments}
-        dateClick={(info) => {
-          appointments.forEach((appointment, key) => {
-            if (info.dateStr === appointment.date) {
-              console.log(
-                "There are " + appointment.slots_num + " in" + info.dateStr
-              );
-              console.log(
-                appointment.slots + " Doctor " + appointment.doctor_name
-              );
-            }
-          });
-        }}
-        eventDisplay="list-item"
-        // eventClick={handleEventClick}
-        // eventContent={(info) => {
-        //   <EventItem info={info} />;
-        // }}
-        firstDay="1"
-        headerToolbar={{
-          left: "prev",
-          center: "title",
-          right: "next",
-        }}
-        footerToolbar={{
-          right: "today",
-          left: "dayGridMonth dayGridWeek dayGridDay",
-        }}
-        buttonIcons={{
-          prev: "chevrons-left",
-          next: "chevrons-right",
-        }}
-        //navLinks={true}
-        // navLinkDayClick={(date) => {
-        //   console.log(date.toISOString().split("T")[0]);
-        // }}
-        // eventClick={{}}
-      />
+      {showCalendar ? (
+        <FullCalendar
+          plugins={[dayGridPlugin, interactionPlugin]}
+          initialView="dayGridMonth"
+          views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
+          events={availableAppointments}
+          dateClick={(info) => {
+            appointments.forEach((appointment, key) => {
+              if (info.dateStr === appointment.date) {
+                console.log(
+                  "There are " + appointment.slots_num + " in" + info.dateStr
+                );
+                console.log(
+                  appointment.slots + " Doctor " + appointment.doctor_name
+                );
+              }
+            });
+          }}
+          eventDisplay="list-item"
+          eventClick={(info) => {
+            appointments.forEach((appointment, key) => {
+              if (info.event.startStr === appointment.date) {
+                setShowCalendar(false);
+                console.log(
+                  "There are " +
+                    appointment.slots_num +
+                    " in " +
+                    info.event.startStr
+                );
+                console.log(
+                  appointment.slots + " Doctor " + appointment.doctor_name
+                );
+              }
+            });
+          }}
+          firstDay="1"
+          headerToolbar={{
+            left: "prev",
+            center: "title",
+            right: "next",
+          }}
+          footerToolbar={{
+            right: "today",
+            left: "dayGridMonth dayGridWeek dayGridDay",
+          }}
+          buttonIcons={{
+            prev: "chevrons-left",
+            next: "chevrons-right",
+          }}
+        />
+      ) : (
+        <div className="event-container">
+          <ul className="horraires-list">
+            <li className="">
+              <input type="radio" value="HHH" />
+            </li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      )}
+
       <Modal
         open={openModal}
         onClose={() => {

@@ -61,3 +61,15 @@
 .doctors-speciality{
     padding: 10px;
 }
+
+.event-container{
+    
+    height: 80px;
+    width: 100%;
+    
+}
+/* .event-card{
+    background-color: #00DCA6;
+    width: fit-content;
+    height: fit-content;
+} */
