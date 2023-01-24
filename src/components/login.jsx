@@ -5,12 +5,21 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import useSessionStorage from "./customHooks/useSessionStorage";
+import { useEffect } from "react";
 
 const Login = () => {
-  const [credentials, setCredentials] = useState({});
-  const [userId, setUserId] = useSessionStorage("userId", "");
-  const url = "http://localhost/YouCode/Theracure";
   const navigate = useNavigate();
+  useEffect(() => {
+    const check = localStorage.getItem("jwt");
+    console.log(check);
+    if (check) {
+      navigate("/");
+    }
+  }, []);
+  const [credentials, setCredentials] = useState({});
+  //const [userId, setUserId] = useSessionStorage("userId", "");
+  const url = "http://localhost/YouCode/Theracure";
+
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -19,17 +28,12 @@ const Login = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     await axios
-      .post(`${url}/authenticate/`, credentials)
+      .post(`${url}/authenticate/`, credentials, { withCredentials: true })
       .then((response) => {
+        console.log(response.data);
         if (response.data.message === "Access allowed") {
-          console.log(response.data);
-          // if (window.sessionStorage["userId"]) {
-          //   window.sessionStorage.setItem("userId", "");
-          //   setUserId(response.data.credentials.id);
-          // } else {
-          //   setUserId(response.data.credentials.id);
-          // }
-          // navigate("/");
+          localStorage.setItem("jwt", response.data.token);
+          navigate("/");
         } else {
           alert("Invalid credentials");
         }

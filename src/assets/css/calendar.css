@@ -45,5 +45,21 @@
     color: black;
   }
 
+  .horraires-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    justify-items: center;
+    padding: 40px;
+    background-color: mediumseagreen;
+  }
+  .horraire-row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
 
 

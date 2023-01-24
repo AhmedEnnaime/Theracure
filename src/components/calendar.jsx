@@ -99,14 +99,19 @@ const Calendare = () => {
           }}
         />
       ) : (
-        <div className="event-container">
-          <ul className="horraires-list">
-            <li className="">
-              <input type="radio" value="HHH" />
-            </li>
-            <li></li>
-            <li></li>
-          </ul>
+        <div className="horraires-list">
+          <h3>5 horraies available</h3>
+          {appointments.forEach((appointment, key) => {
+            <div className="horraire-row">
+              <input
+                type="radio"
+                id="html"
+                name="fav_language"
+                value={appointment.date}
+              />
+              <label htmlFor="html">{appointment.date}</label>
+            </div>;
+          })}
         </div>
       )}
 

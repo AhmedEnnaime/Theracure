@@ -2,13 +2,32 @@ import { BiSearchAlt2, BiDownArrow } from "react-icons/bi";
 import { useState } from "react";
 import "../assets/css/header.css";
 import profile_img from "../assets/images/ennaime.jpeg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/thecure-whitev2.svg";
+import axios from "axios";
 
 const Header = () => {
   const [search, setSearch] = useState("");
   const [toggle, setToggle] = useState(false);
-
+  const url = "http://localhost/YouCode/Theracure";
+  const navigate = useNavigate();
+  const logout = async (e) => {
+    e.preventDefault();
+    localStorage.removeItem("jwt");
+    localStorage.clear();
+    navigate("/login");
+    // await axios
+    //   .post(`${url}/authenticate/logout`)
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     if (response.data.message === "logged out successfully") {
+    //       navigate("/login");
+    //     }
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
+  };
   return (
     <header className="App-header">
       <div className="header">
@@ -62,7 +81,7 @@ const Header = () => {
                     <Link style={{ textDecoration: "none" }} to={"/profile"}>
                       <p className="dropdown-link">Profile</p>
                     </Link>
-                    <Link style={{ textDecoration: "none" }} to={"/login"}>
+                    <Link onClick={logout} style={{ textDecoration: "none" }}>
                       <p className="dropdown-link">Log out</p>
                     </Link>
                   </div>
