@@ -21,6 +21,7 @@ const Signup = () => {
       .post(`${url}/users/signup`, inputs)
       .then((response) => {
         if (response.data) {
+          console.log(response.data);
           navigate("/login");
         }
       })

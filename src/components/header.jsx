@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/thecure-whitev2.svg";
 import axios from "axios";
 
-const Header = () => {
+const Header = ({ user }) => {
   const [search, setSearch] = useState("");
   const [toggle, setToggle] = useState(false);
   const url = "http://localhost/YouCode/Theracure";
@@ -16,18 +16,8 @@ const Header = () => {
     localStorage.removeItem("jwt");
     localStorage.clear();
     navigate("/login");
-    // await axios
-    //   .post(`${url}/authenticate/logout`)
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     if (response.data.message === "logged out successfully") {
-    //       navigate("/login");
-    //     }
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
   };
+
   return (
     <header className="App-header">
       <div className="header">
@@ -73,7 +63,7 @@ const Header = () => {
                     alt="user-profile"
                     className="user-img"
                   />
-                  <h5>Ahmed Ennaime</h5>
+                  <h5>{user.name}</h5>
                   <BiDownArrow className="drop-down-btn" />
                 </div>
                 {toggle && (

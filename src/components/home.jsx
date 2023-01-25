@@ -4,15 +4,18 @@ import Appointment from "./appointments";
 import Header from "./header";
 import Footer from "./footer";
 import "../assets/css/home.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import getUserId from "./getUserId";
+import axios from "axios";
 
-const Home = () => {
+const Home = ({ user }) => {
   const navigate = useNavigate();
+  const url = "http://localhost/YouCode/Theracure";
+
   useEffect(() => {
     const check = localStorage.getItem("jwt");
-    console.log(check);
     if (!check) {
       navigate("/login");
     }
@@ -20,11 +23,11 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
+      <Header user={user} />
       <section id="home">
         <div className="greeting">
           <span>👋</span>
-          <h1 className="greeting">Welcome Back Ahmed</h1>
+          <h1 className="greeting">Welcome Back {user.name}</h1>
         </div>
         <div className="cards-container">
           <Calendare />

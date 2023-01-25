@@ -4,18 +4,16 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import "../assets/css/allDoctors.css";
 import doctor_img from "../assets/images/ait elkadi.jpeg";
+import getUserId from "./getUserId";
 
-const AllDoctors = () => {
+const AllDoctors = ({ user }) => {
   const [doctors, setDoctors] = useState([]);
   const [searchName, setSearchName] = useState("");
   const [searchSpeciality, setSearchSpeciality] = useState("");
+
   useEffect(() => {
     requestDoctors();
   }, []);
-
-  useEffect(() => {
-    console.log(searchSpeciality);
-  }, [searchSpeciality]);
 
   const url = "http://localhost/YouCode/Theracure";
 
@@ -42,7 +40,7 @@ const AllDoctors = () => {
 
   return (
     <div>
-      <Header />
+      <Header user={user} />
       <h1 className="title">Doctors</h1>
       <div className="search-bar">
         <input

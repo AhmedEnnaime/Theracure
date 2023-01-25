@@ -5,7 +5,7 @@ import { AiOutlineCamera } from "react-icons/ai";
 import { useState } from "react";
 import "../assets/css/profile.css";
 
-const Profile = () => {
+const Profile = ({ user }) => {
   const [inputs, setInputs] = useState({});
   const handleChange = (e) => {
     const name = e.target.name;
@@ -16,7 +16,7 @@ const Profile = () => {
   const updateProfile = async () => {};
   return (
     <div>
-      <Header />
+      <Header user={user} />
       <h1 className="title">Profile</h1>
       <div className="profile-container">
         <div className="profile-head">
@@ -36,6 +36,7 @@ const Profile = () => {
               className="login-inp"
               placeholder="Enter name"
               onChange={handleChange}
+              value={user.name}
             />
             <input type="date" name="birthday" className="login-inp" />
             <input
@@ -44,6 +45,7 @@ const Profile = () => {
               className="login-inp"
               placeholder="Enter cin"
               onChange={handleChange}
+              value={user.cin}
             />
             <input
               type="email"
@@ -51,6 +53,7 @@ const Profile = () => {
               className="login-inp"
               placeholder="Enter email"
               onChange={handleChange}
+              value={user.email}
             />
             <input
               type="password"
@@ -58,6 +61,7 @@ const Profile = () => {
               className="login-inp"
               placeholder="Enter password"
               onChange={handleChange}
+              value={user.password}
             />
             <button type="submit" className="login-btn">
               Update
