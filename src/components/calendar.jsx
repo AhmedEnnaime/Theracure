@@ -6,12 +6,14 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import "../assets/css/calendar.css";
 import axios from "axios";
-//import EventItem from "./event";
+import { FaTimes } from "react-icons/fa";
+import EventItem from "./event";
 
 const Calendare = () => {
   const [openModal, setOpenModal] = useState(false);
   const [appointments, setAppointments] = useState([]);
   const [showCalendar, setShowCalendar] = useState(true);
+  const [eventDate, setEventDate] = useState(new Date());
 
   useEffect(() => {
     requestAvailableAppointments();
@@ -70,6 +72,7 @@ const Calendare = () => {
           eventClick={(info) => {
             appointments.forEach((appointment, key) => {
               if (info.event.startStr === appointment.date) {
+                setEventDate(info.event.startStr);
                 setShowCalendar(false);
                 console.log(
                   "There are " +
@@ -99,20 +102,7 @@ const Calendare = () => {
           }}
         />
       ) : (
-        <div className="horraires-list">
-          <h3>5 horraies available</h3>
-          {appointments.forEach((appointment, key) => {
-            <div className="horraire-row">
-              <input
-                type="radio"
-                id="html"
-                name="fav_language"
-                value={appointment.date}
-              />
-              <label htmlFor="html">{appointment.date}</label>
-            </div>;
-          })}
-        </div>
+        <EventItem eventDate={eventDate} appointments={appointments} />
       )}
 
       <Modal
