@@ -14,15 +14,6 @@ const App = () => {
   const [user, setUser] = useState({});
   const url = "http://localhost/YouCode/Theracure";
   const userId = getUserId();
-  // const user = useState(null);
-  // const queryClient = new QueryClient({
-  //   defaultOptions: {
-  //     queries: {
-  //       staleTime: Infinity,
-  //       cacheTime: Infinity,
-  //     },
-  //   },
-  // });
 
   useEffect(() => {
     if (userId) {

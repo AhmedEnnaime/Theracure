@@ -1,10 +1,35 @@
 import { FaTimes } from "react-icons/fa";
-const EventItem = ({ eventDate, appointments }) => {
-  console.log(appointments);
+import axios from "axios";
+import { useState, useNavigate } from "react";
+import getUserId from "./getUserId";
+
+const EventItem = ({ eventDate, appointments, open }) => {
+  const [appointmentInfo, setAppointmentInfo] = useState({});
+  const url = "http://localhost/YouCode/Theracure";
+  const navigate = useNavigate();
+  const userId = getUserId();
+
+  const handleSubmit = async () => {
+    await axios
+      .post(`${url}/takeAppointment/${userId}`, appointmentInfo)
+      .then((response) => {
+        console.log(response.data);
+        if (response.status === 201) {
+          console.log("appointment taken successfully");
+          //navigate("/");
+        } else {
+          console.log("failed to take appointment");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="horraires-list">
       <FaTimes
         onClick={() => {
+          open = false;
           //setShowCalendar(true);
         }}
       />
@@ -12,7 +37,14 @@ const EventItem = ({ eventDate, appointments }) => {
       <h3>clicked date is {eventDate}</h3>
       {appointments.length ? (
         appointments.map((appointment, key) => (
-          <>{eventDate === appointment.date && <p>{appointment.slots}</p>}</>
+          <>
+            {eventDate === appointment.date && (
+              <div>
+                <p>{appointment.slots}</p>
+                <p>{appointment.schedule_id}</p>
+              </div>
+            )}
+          </>
         ))
       ) : (
         <h3>No appointments available</h3>

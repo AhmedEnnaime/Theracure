@@ -1,16 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import "react-calendar/dist/Calendar.css";
-import Modal from "./modal";
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import "../assets/css/calendar.css";
 import axios from "axios";
-import { FaTimes } from "react-icons/fa";
 import EventItem from "./event";
 
 const Calendare = () => {
-  const [openModal, setOpenModal] = useState(false);
   const [appointments, setAppointments] = useState([]);
   const [showCalendar, setShowCalendar] = useState(true);
   const [eventDate, setEventDate] = useState(new Date());
@@ -102,15 +99,12 @@ const Calendare = () => {
           }}
         />
       ) : (
-        <EventItem eventDate={eventDate} appointments={appointments} />
+        <EventItem
+          eventDate={eventDate}
+          appointments={appointments}
+          open={showCalendar}
+        />
       )}
-
-      <Modal
-        open={openModal}
-        onClose={() => {
-          setOpenModal(false);
-        }}
-      />
     </div>
   );
 };
