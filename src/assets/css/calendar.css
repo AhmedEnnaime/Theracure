@@ -54,6 +54,8 @@
     margin-top: 40px;
     border-radius: 5px;
     background-color: #86b6e9;
+    margin-left: 20px;
+    margin-right: 20px;
   }
   .horraire-row{
     display: flex;

@@ -34,6 +34,7 @@ const EventItem = ({ eventDate, appointments, open }) => {
         console.log(err);
       });
   };
+
   return (
     <>
       <form action="" onSubmit={handleSubmit} className="horraires-list">
@@ -68,12 +69,14 @@ const EventItem = ({ eventDate, appointments, open }) => {
           onChange={handleChange}
           type="hidden"
           name="date"
+          id="eventDate"
           value={eventDate}
         />
         <input
           type="hidden"
           name="user_id"
           value={userId}
+          id="user_id"
           onChange={handleChange}
         />
         <button className="submit-btn" type="submit">
