@@ -102,7 +102,7 @@ const Calendare = () => {
         <EventItem
           eventDate={eventDate}
           appointments={appointments}
-          open={showCalendar}
+          open={setShowCalendar}
         />
       )}
     </div>

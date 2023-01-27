@@ -50,15 +50,26 @@
     flex-direction: column;
     gap: 10px;
     justify-content: center;
-    justify-items: center;
     padding: 40px;
-    background-color: mediumseagreen;
+    border-radius: 5px;
+    background-color: #86b6e9;
   }
   .horraire-row{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 20px;
+  }
+  .submit-btn{
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #00DCA6;
+    margin-top: 20px;
+  }
+  .close-btn{
+    cursor: pointer;
   }
 
 

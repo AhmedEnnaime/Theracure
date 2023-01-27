@@ -1,6 +1,7 @@
 import { FaTimes } from "react-icons/fa";
 import axios from "axios";
-import { useState, useNavigate } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import getUserId from "./getUserId";
 
 const EventItem = ({ eventDate, appointments, open }) => {
@@ -9,15 +10,23 @@ const EventItem = ({ eventDate, appointments, open }) => {
   const navigate = useNavigate();
   const userId = getUserId();
 
-  const handleSubmit = async () => {
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setAppointmentInfo((values) => ({ ...values, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     await axios
-      .post(`${url}/takeAppointment/${userId}`, appointmentInfo)
+      .post(`${url}/appointments/takeAppointment/${userId}`, appointmentInfo)
       .then((response) => {
         console.log(response.data);
         if (response.status === 201) {
           console.log("appointment taken successfully");
           //navigate("/");
         } else {
+          console.log(appointmentInfo);
           console.log("failed to take appointment");
         }
       })
@@ -28,39 +37,49 @@ const EventItem = ({ eventDate, appointments, open }) => {
   return (
     <div className="horraires-list">
       <FaTimes
+        className="close-btn"
         onClick={() => {
-          open = false;
-          //setShowCalendar(true);
+          open(true);
         }}
       />
-      <h3>5 horraies available</h3>
-      <h3>clicked date is {eventDate}</h3>
-      {appointments.length ? (
-        appointments.map((appointment, key) => (
-          <>
-            {eventDate === appointment.date && (
-              <div>
-                <p>{appointment.slots}</p>
-                <p>{appointment.schedule_id}</p>
-              </div>
-            )}
-          </>
-        ))
-      ) : (
-        <h3>No appointments available</h3>
-      )}
-
-      {/* <input type="radio" id="html" name="fav_language" value="HTML" />
-      <label for="html">HTML</label>
-      <input type="radio" id="css" name="fav_language" value="CSS" />
-      <label for="css">CSS</label>
-      <input
-        type="radio"
-        id="javascript"
-        name="fav_language"
-        value="JavaScript"
-      />
-      <label for="javascript">JavaScript</label> */}
+      <form action="" onSubmit={handleSubmit} className="horraires-list">
+        <h3>Schedule of {eventDate}</h3>
+        {appointments.length ? (
+          appointments.map((appointment, key) => (
+            <>
+              {eventDate === appointment.date && (
+                <div key={key} className="horraire-row">
+                  <input
+                    type="radio"
+                    name="schedule_id"
+                    className="schedule"
+                    value={appointment.schedule_id}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor="">{appointment.slots}</label>
+                </div>
+              )}
+            </>
+          ))
+        ) : (
+          <h3>No appointments available</h3>
+        )}
+        <input
+          onChange={handleChange}
+          type="hidden"
+          name="date"
+          value={eventDate}
+        />
+        <input
+          type="hidden"
+          name="user_id"
+          value={userId}
+          onChange={handleChange}
+        />
+        <button className="submit-btn" type="submit">
+          Take appointment
+        </button>
+      </form>
     </div>
   );
 };
