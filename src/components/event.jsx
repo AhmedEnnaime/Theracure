@@ -35,14 +35,14 @@ const EventItem = ({ eventDate, appointments, open }) => {
       });
   };
   return (
-    <div className="horraires-list">
-      <FaTimes
-        className="close-btn"
-        onClick={() => {
-          open(true);
-        }}
-      />
+    <>
       <form action="" onSubmit={handleSubmit} className="horraires-list">
+        <FaTimes
+          className="close-btn"
+          onClick={() => {
+            open(true);
+          }}
+        />
         <h3>Schedule of {eventDate}</h3>
         {appointments.length ? (
           appointments.map((appointment, key) => (
@@ -80,7 +80,7 @@ const EventItem = ({ eventDate, appointments, open }) => {
           Take appointment
         </button>
       </form>
-    </div>
+    </>
   );
 };
 

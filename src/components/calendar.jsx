@@ -53,33 +53,12 @@ const Calendare = () => {
           initialView="dayGridMonth"
           views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
           events={availableAppointments}
-          dateClick={(info) => {
-            appointments.forEach((appointment, key) => {
-              if (info.dateStr === appointment.date) {
-                console.log(
-                  "There are " + appointment.slots_num + " in" + info.dateStr
-                );
-                console.log(
-                  appointment.slots + " Doctor " + appointment.doctor_name
-                );
-              }
-            });
-          }}
           eventDisplay="list-item"
           eventClick={(info) => {
             appointments.forEach((appointment, key) => {
               if (info.event.startStr === appointment.date) {
                 setEventDate(info.event.startStr);
                 setShowCalendar(false);
-                console.log(
-                  "There are " +
-                    appointment.slots_num +
-                    " in " +
-                    info.event.startStr
-                );
-                console.log(
-                  appointment.slots + " Doctor " + appointment.doctor_name
-                );
               }
             });
           }}

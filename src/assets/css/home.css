@@ -125,88 +125,12 @@
   cursor: pointer;
 }
 
-
-
-
-/* 
-.modalButton {
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    padding: 12px 24px;
-  } */
+.not-found{
+  width: 280px;
+  height: 200px;
+  padding-left: 40px;
+  padding-bottom: 20px;
+}
   
   
-  /* Modal */
-  /* .overlay {
-    z-index: 10000;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-  }
   
-  .modalContainer {
-    max-width: 600px;
-    width: 100%;
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 18px 0px rgba(0, 0, 0, 0.75);
-    border-radius: 8px;
-  }
-  
-  .modalRight {
-    width: 100%;
-  }
-  
-  .closeBtn {
-    position: fixed;
-    top: 8px;
-    right: 8px;
-    cursor: pointer;
-  }
-  
-  .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    margin-top: 3rem;
-    padding: 1rem 2rem;
-  }
-  .img_calendar{
-    width: 350px;
-    object-fit: cover;
-  }
-  
-  .btnContainer {
-    display: flex;
-    padding: 1rem 1rem;
-  }
-  .btnContainer button {
-    width: 100%;
-    margin: .5rem;
-    padding: 16px 0;
-    border: 1px solid #411b57;
-  }
-  
-  .btnPrimary {
-    background-color: #411b57;
-    color: white;
-  }
-  
-  .bold {
-    font-weight: 600;
-  }
-
-  .time{
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 20px;
-  } */

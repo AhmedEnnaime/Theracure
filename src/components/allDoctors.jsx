@@ -68,7 +68,7 @@ const AllDoctors = ({ user }) => {
         </select>
       </div>
       <div className="doctors-list">
-        {doctors.length > 0 ? (
+        {doctors.length ? (
           doctors
             .filter((doctor) => {
               if (searchName === "" && searchSpeciality === "") {
@@ -80,25 +80,21 @@ const AllDoctors = ({ user }) => {
                 return doctor;
               }
             })
-            .map((doctor, key) =>
-              doctor.length === 0 ? (
-                <h1>Noo</h1>
-              ) : (
-                <div key={key} className="doctor-card">
-                  <div className="img-card">
-                    <img className="doctors-img" src={doctor_img} alt="" />
-                  </div>
-                  <div className="doctors-info">
-                    <h3 className="name">{doctor.name}</h3>
-                    <p>{doctor.email}</p>
-                  </div>
-                  <div className="doctors-speciality">
-                    <hr className="line" />
-                    <span>{doctor.speciality}</span>
-                  </div>
+            .map((doctor, key) => (
+              <div key={key} className="doctor-card">
+                <div className="img-card">
+                  <img className="doctors-img" src={doctor_img} alt="" />
                 </div>
-              )
-            )
+                <div className="doctors-info">
+                  <h3 className="name">{doctor.name}</h3>
+                  <p>{doctor.email}</p>
+                </div>
+                <div className="doctors-speciality">
+                  <hr className="line" />
+                  <span>{doctor.speciality}</span>
+                </div>
+              </div>
+            ))
         ) : (
           <h1>No doctor found</h1>
         )}
