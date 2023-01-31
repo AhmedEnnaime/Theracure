@@ -11,9 +11,13 @@ const EventItem = ({ eventDate, appointments, open }) => {
   const userId = getUserId();
 
   const handleChange = (e) => {
-    const name = e.target.name;
     const value = e.target.value;
-    setAppointmentInfo((values) => ({ ...values, [name]: value }));
+    const test = {
+      date: eventDate,
+      user_id: userId,
+      schedule_id: value,
+    };
+    setAppointmentInfo(test);
   };
 
   const handleSubmit = async (e) => {
@@ -24,6 +28,7 @@ const EventItem = ({ eventDate, appointments, open }) => {
         console.log(response.data);
         if (response.status === 201) {
           console.log("appointment taken successfully");
+          console.log(appointmentInfo);
           //navigate("/");
         } else {
           console.log(appointmentInfo);

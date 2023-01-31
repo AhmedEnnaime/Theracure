@@ -1,12 +1,10 @@
 import Home from "./components/home";
 import Login from "./components/login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { QueryClientProvider, QueryClient } from "react-query";
 import { useState, useEffect } from "react";
 import Signup from "./components/signup";
 import AllDoctors from "./components/allDoctors";
 import Profile from "./components/profile";
-import UserContext from "./components/context/userContext";
 import axios from "axios";
 import getUserId from "./components/getUserId";
 
@@ -35,8 +33,6 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <UserContext.Provider value={user}>
-          <QueryClientProvider client={queryClient}> */}
         <Routes>
           <Route path="/" element={<Home user={user} />}></Route>
           <Route path="/login" element={<Login />}></Route>
@@ -44,8 +40,6 @@ const App = () => {
           <Route path="/doctors" element={<AllDoctors user={user} />}></Route>
           <Route path="/profile" element={<Profile user={user} />}></Route>
         </Routes>
-        {/* </QueryClientProvider>
-        </UserContext.Provider> */}
       </BrowserRouter>
     </div>
   );
